@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./index.css";
+import Switch from '@mui/material/Switch';
+import ControlledSwitches from "./Components/Toggle";
+import { ThemeProvider } from "./Context/Theme";
+import useTheme from "./Context/Theme";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [mode, setmode] = useState("light");
+
+  const darkTheme=()=>{
+    setmode("dark");
+  }
+
+
+  const lightTheme=()=>{
+    setmode("light");
+  }
+
+  //actually change the theme
+  useEffect(()=>{
+       document.querySelector('html').classList.remove("dark","light");
+       document.querySelector('html').classList.add(mode);
+  },[mode])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <ThemeProvider value={{mode,darkTheme,lightTheme}}>
+
+
+      <div className="app w-full text-2xl h-screen flex flex-col gap-3 items-center justify-center">
+        <h1>Toggle theme here <ControlledSwitches></ControlledSwitches></h1>
+         <div className="card  p-5 overflow-hidden rounded-lg flex gap-4 flex-col w-1/4 bg-black min-h-3/5">
+               <div className="img">
+                  <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&q=60&w=600&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cHM1fGVufDB8fDB8fHww" className="w-full h-44" alt="" />
+               </div>
+               <h1 className="text-white text-center text-xl font-bold mx-1">
+                Sony PS5 Standalone console , Aluminium Case , Starlight Sport
+               </h1>
+
+               <div className="Pricing flex gap-3">
+                    <h1 className="text-white text-2xl font-bold">$499</h1>
+                    <button className="bg-blue-600 rounded-md p-2 text-white ml-auto text-xl hover:bg-teal-500">Add to Cart</button>
+               </div>
+         </div>
+       </div>
+       </ThemeProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
