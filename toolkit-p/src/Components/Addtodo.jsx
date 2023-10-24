@@ -13,9 +13,9 @@ function Addtodo() {
     }
   return (
     <div className='my-10'>
-      <form className='bg-white flex flex-col items-center justify-center p-4 gap-6'>
+      <form className='bg-darkBlue w-full flex items-center justify-center p-3 gap-4'>
         <input type="text" className='p-4 w-full' placeholder='Enter Your Task' name='task' value={task} onChange={(e)=>settask(e.target.value)}/>
-        <button className='p-4 bg-green-500 text-white font-bold' onClick={addtodohandler}>Add todo</button>
+        <button className='p-3 bg-purple text-white font-bold' onClick={addtodohandler}>Add</button>
       </form>
     </div>
   );
