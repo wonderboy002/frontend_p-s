@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../redux_store/Todo_Slice";
-function Tasks() {
+function Tasks(props) {
   const arr = useSelector((state) => state.todos);
-  const dispatch=useDispatch();
-  function deleteTask(id){
-    dispatch(remove(id))
+  const dispatch = useDispatch();
+  function deleteTask(id) {
+    dispatch(remove(id));
   }
+
   return (
     <>
       <div className="task-container mt-8 mx-auto w-4/5 mb-8 h-[400px] flex  flex-col gap-2 overflow-auto">
-        {arr?.map((todo) => {
+        {arr?.map((todo,index) => {
           return (
             <div
               className="p-3 flex gap-4 w-9/10 items-center bg-blue  font-bold text-black"
@@ -18,7 +19,7 @@ function Tasks() {
             >
               {todo.text}
               <div className="buttons flex gap-3 ml-auto">
-                <button className="bg-green delete p-1 rounded-full text-xl text-white" >
+                <button onClick={()=>props.editTask(index,todo.id)} className="bg-green delete p-1 rounded-full text-xl text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -34,8 +35,10 @@ function Tasks() {
                     />
                   </svg>
                 </button>
-                <button className="bg-red edit p-1 text-white rounded-full"
-                onClick={()=>deleteTask(todo.id)}>
+                <button
+                  className="bg-red edit p-1 text-white rounded-full"
+                  onClick={() => deleteTask(todo.id)}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

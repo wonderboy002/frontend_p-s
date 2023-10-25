@@ -1,19 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { add } from "../redux_store/Todo_Slice";
+import { update } from "../redux_store/Todo_Slice";
 import Tasks from "./Tasks";
+
 
 function Taskform() {
   const [task, setTask] = useState("");
+  const [editing, setEditing] = useState(false);
+  const [editIndex,seteditIndex]=useState(1);
+  const [editId,seteditId]=useState("");
   const dispatch = useDispatch();
   const arr = useSelector((state) => state.todos);
-
+  
+  useEffect(()=>{
+     console.log(arr);
+  },[arr])
   function addTask(e) {
-    if (task.length !== 0) {
+    if (task.length !== 0 && editing === false) {
       dispatch(add(task));
+      setTask("");
+    } else if (editing === true) {
+      dispatch(update({text : task,i : editIndex,editId : editId }));
+      setEditing(false);
+      setTask("");
+      seteditId("");
     }
-    setTask("");
   }
+
+  function editTask(index,id) {
+    setTask(arr[index].text);
+    seteditIndex(index);
+    setEditing(true);
+    seteditId(id);
+  }
+
   return (
     <div className="App">
       <div className="mainApp flex flex-col w-full items-center gap-6">
@@ -44,7 +65,7 @@ function Taskform() {
           </button>
         </div>
       </div>
-      <Tasks />
+      <Tasks editTask={editTask} />
     </div>
   );
 }
