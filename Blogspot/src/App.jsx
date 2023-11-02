@@ -1,12 +1,38 @@
+import { useEffect, useState } from "react";
 import conf from "./conf/conf";
+import {useDispatch} from "react-redux";
+import Auth from "./Appwrite/auth";
+import {login,logout} from "./Store/authSlice";
 
 function App() {
+  const [loading,setLoading]=useState(true);
+  const dispatch=useDispatch();
 
-  console.log(conf.appwriteUrl);
+  useEffect(()=>{
+      Auth.getAccount()
+      .then((userData)=>{
+        if (userData){
+          dispatch(login({userData}))
+        }
+        else {
+          dispatch(logout());
+        }
+      })
+      .finally(()=>setLoading(false))
+  },[])
+  
   return (
-   <div className='App min-h-screen bg-blue-900 text-center p-16'>
-   <h1 className='text-4xl text-white font-extrabold'>Blogspot , A reactjs based blog platform with appwrite backend</h1>
-    </div>
+  <>
+     {
+      !loading?(
+        <div className="">
+
+        </div>
+      ):(
+        <div>Loading....</div>
+      )
+     }
+  </>
   )
 }
 
