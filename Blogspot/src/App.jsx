@@ -3,6 +3,7 @@ import conf from "./conf/conf";
 import {useDispatch} from "react-redux";
 import Auth from "./Appwrite/auth";
 import {login,logout} from "./Store/authSlice";
+import { Footer, Header } from "./Components";
 
 function App() {
   const [loading,setLoading]=useState(true);
@@ -25,8 +26,11 @@ function App() {
   <>
      {
       !loading?(
-        <div className="">
-
+        <div className="min-h-screen flex flex-col gap-6 bg-slate-400">
+           <div className="main w-full block">
+               <Header/>
+               <Footer/>
+           </div>
         </div>
       ):(
         <div>Loading....</div>
