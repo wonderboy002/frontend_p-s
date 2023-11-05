@@ -5,6 +5,7 @@ import Auth from "./Appwrite/auth";
 import { login, logout } from "./Store/authSlice";
 import { Footer, Header } from "./Components";
 import LogoutBtn from "./Components/Header/LogoutBtn";
+import Input from "./Components/Input";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -30,6 +31,7 @@ function App() {
             <Header />
             <Footer />
           </div>
+         
         </div>
       ) : (
         <div>Loading....</div>
