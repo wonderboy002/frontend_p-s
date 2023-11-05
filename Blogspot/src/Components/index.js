@@ -1,7 +1,11 @@
 //exporting all components from here
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import Container from "../Container/Container";
+import LogoutBtn from "./Header/LogoutBtn";
 export  {
     Header,
-    Footer
+    Footer,
+    Container,
+    LogoutBtn
 }
