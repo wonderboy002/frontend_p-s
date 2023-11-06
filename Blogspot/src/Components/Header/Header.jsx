@@ -3,6 +3,7 @@ import { Container, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import ThemeSwitch from "./ThemeSwitch";
 
 function Header() {
   const authStatus = useSelector((state) => state.logged);
@@ -49,13 +50,14 @@ function Header() {
               {navItems.map((item) =>
                 item.active ? (
                   <div key={item.name}>
-                    <button className="text-black font-bold duration-300 hover:bg-blue-400 p-3 hover:rounded-full">
+                    <button className="text-black font-bold duration-300 hover:bg-emerald-400 p-3 hover:rounded-full">
                       {item.name}
                     </button>
                   </div>
                 ) : null
               )}
              
+              <ThemeSwitch/>
               {authStatus && <LogoutBtn />}
 
             </div>

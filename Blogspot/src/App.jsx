@@ -6,6 +6,7 @@ import { login, logout } from "./Store/authSlice";
 import { Footer, Header } from "./Components";
 import LogoutBtn from "./Components/Header/LogoutBtn";
 import Input from "./Components/Input";
+import Login from "./Components/Login";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -29,7 +30,9 @@ function App() {
         <div className="min-h-screen flex flex-col gap-6">
           <div className="main w-full block">
             <Header />
+            <Login/>
             <Footer />
+           
           </div>
          
         </div>
