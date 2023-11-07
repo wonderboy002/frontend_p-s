@@ -1,49 +1,56 @@
-import React, { useState } from "react";
+import React,{useState} from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { login as authLogin } from "../Store/authSlice";
-import Input from "./Input";
+import { login as authLogin, login } from "../Store/authSlice";
 import Auth from "../Appwrite/auth";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import '../index.css'
 
-export default function Login() {
-  // const navigate=useNavigate(); pehle router set karna pdega
-  const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
-  const [error, setError] = useState("");
 
-  const login = async (data) => {
-    setError("");
-    try {
-      const session = await Auth.login(data);
-      if (session) {
-        const userData = await Auth.getAccount();
-        if (userData) {
-          dispatch(authLogin(userData));
-          //navigate("/");
+
+function Signup() {
+    // const navigate=useNavigate(); pehle router set karna pdega
+    const dispatch = useDispatch();
+    const { register, handleSubmit } = useForm();
+    const [error, setError] = useState("");
+
+    const signUp=async (data)=>{
+      setError("");
+      try{
+        const userData= await Auth.createAccount(data);
+        if (userData){
+          const userData=await Auth.getAccount()
+          if (userData){
+            dispatch(authLogin(userData))
+          }
+          //navigate("/"); karna isko router set karne k baad
         }
       }
-    } catch (error) {
-      setError(error);
-      console.log("error in Login.jsx Component", error);
+      catch(error){
+        setError(error);
+      }
     }
-  };
   return (
     <div className="mainlogin w-full flex flex-col gap-4 p-4  items-center my-8">
-      <h1 className="text-xl font-xl font-semibold">Login in to your Account</h1>
-      <p className="font-bold">Don't have an account ?? <a href="#" className="font-bold text-blue-700 underline hover:text--blue-400">Sign up Here</a></p>
-      {error && ( <p className="text-red-500 font-semibold text-center">
-        {error.response.message}
+      <h1 className="text-xl font-xl font-semibold">Create your Account</h1>
+      {error && (<p className="text-red-500 font-semibold text-center">
+        {JSON.stringify(error.response)}
         </p>
       )
         }
       <form 
-      onSubmit={handleSubmit(login)}
+      onSubmit={handleSubmit(signUp)}
       className="flex w-full items-center flex-col gap-4">
        
-
+       <TextField
+          label="Enter Your Name"
+          type="text"
+          className="w-full md:w-1/3"
+          {...register("name",{
+            required : true
+          })}
+        />
         <TextField
           id="outlined-password-input"
           label="Enter Your Email"
@@ -70,8 +77,10 @@ export default function Login() {
           })}
 
         />
-        <button type="submit" className="bg-emerald-600 p-3 loginbtn w-full md:w-1/3 text-white font-semibold ">Submit</button>
+        <button type="submit" className="bg-emerald-600 p-3 loginbtn w-full md:w-1/3 text-white font-semibold ">Create Account</button>
       </form>
     </div>
   );
 }
+
+export default Signup;
