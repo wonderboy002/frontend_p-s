@@ -4,11 +4,11 @@ import { useDispatch } from "react-redux";
 import Auth from "./Appwrite/auth";
 import { login, logout } from "./Store/authSlice";
 import { Footer, Header } from "./Components";
-import LogoutBtn from "./Components/Header/LogoutBtn";
 import Input from "./Components/Input";
-import Login from "./Components/Login";
-import Signup from "./Components/Signup";
+import SignupPage from "./Pages/SignupPage";
+import LoginPage from "./Pages/LoginPage";
 import RTE from "./Components/RTE";
+import AddPostPage from "./Pages/AddPostPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ function App() {
         <div className="min-h-screen flex flex-col gap-6">
           <div className="main w-full block">
             <Header />
-            <RTE/>
+            <SignupPage/>
             <Footer />
            
           </div>

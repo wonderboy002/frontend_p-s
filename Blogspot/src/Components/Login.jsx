@@ -9,7 +9,7 @@ import TextField from "@mui/material/TextField";
 import '../index.css'
 
 export default function Login() {
-  // const navigate=useNavigate(); pehle router set karna pdega
+  const navigate=useNavigate(); 
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const [error, setError] = useState("");
@@ -22,7 +22,7 @@ export default function Login() {
         const userData = await Auth.getAccount();
         if (userData) {
           dispatch(authLogin(userData));
-          //navigate("/");
+          navigate("/");
         }
       }
     } catch (error) {

@@ -11,24 +11,50 @@ export class databaseService {
     this.bucket = new Storage(this.client);
   }
 
-  async createPost({ title, content, slug, featuredImage, status, userid }) {
+  // async createPost({ title, content, slug, featuredImage, status, userid }) {
+  //   try {
+  //     return await this.database.createDocument(
+  //       conf.databaseId,
+  //       conf.collectionId,
+  //       slug, //document_id,
+  //       {
+  //         title: title,
+  //         content: content,
+  //         featuredImage: featuredImage,
+  //         status: status,
+  //         userid: userid,
+  //       }
+  //     );
+  //   } catch (e) {
+  //     console.log("inside createPost :: Appwrite error", e);
+  //   }
+  // } orignal
+
+  async createPost({ title, slug, content, featuredImage, status, userid }) {
+    console.log("hello this is inside createPost",featuredImage);
     try {
-      this.database.createDocument(
+      const document = {
+        title: title,
+        content: content,
+        status: status,
+        userid: userid,
+      };
+  
+      if (featuredImage) {
+        document.image = featuredImage;
+      }
+  
+      return await this.database.createDocument(
         conf.databaseId,
         conf.collectionId,
-        slug, //document_id,
-        {
-          title: title,
-          content: content,
-          featuredImage: featuredImage,
-          status: status,
-          userid: userid,
-        }
+        slug,
+        document
       );
     } catch (e) {
       console.log("inside createPost :: Appwrite error", e);
     }
   }
+  
 
   async updatePost(slug,{title, content,featuredImage, status}){
        try {

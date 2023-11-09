@@ -10,3 +10,6 @@
     border-radius: 9999px;
     /* transform: scale(1.1); */
 }
+.slug{
+    border: 2px solid black;
+}

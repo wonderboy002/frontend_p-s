@@ -10,7 +10,7 @@ import '../index.css'
 
 
 function Signup() {
-    // const navigate=useNavigate(); pehle router set karna pdega
+    const navigate=useNavigate();
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
     const [error, setError] = useState("");
@@ -24,7 +24,7 @@ function Signup() {
           if (userData){
             dispatch(authLogin(userData))
           }
-          //navigate("/"); karna isko router set karne k baad
+          navigate("/");
         }
       }
       catch(error){

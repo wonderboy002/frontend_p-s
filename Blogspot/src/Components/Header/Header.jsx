@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -6,9 +6,14 @@ import { useNavigate } from "react-router-dom";
 import ThemeSwitch from "./ThemeSwitch";
 
 function Header() {
-  const authStatus = useSelector((state) => state.logged);
-  // const navigate=useNavigate();
-
+  const authStatus = useSelector((state) => state.auth.logged);
+  useEffect(()=>{
+    console.log("this is auth Status",authStatus);
+  })
+  const navigate=useNavigate();
+  useEffect(()=>{
+    console.log(navItems.filter((item)=>item.active))
+  })
   const navItems = [
     {
       name: "Home",
@@ -32,7 +37,7 @@ function Header() {
     },
     {
       name: "AddPost",
-      url: "/AddPost",
+      url: "/AddPostPage",
       active: authStatus,
     },
   ];
@@ -46,13 +51,13 @@ function Header() {
               className="logo w-[100px] h-[65px]"
               alt=""
             />
-            <div className="md:flex hidden ml-auto gap-4">
+            <div className="md:flex md:items-center hidden ml-auto gap-4">
               {navItems.map((item) =>
                 item.active ? (
                   <div key={item.name}>
-                    <button className="text-black font-bold duration-300 hover:bg-emerald-400 p-3 hover:rounded-full">
+                    <Link to={item.url} className="text-black font-bold duration-300 hover:bg-emerald-400 p-3 hover:rounded-full">
                       {item.name}
-                    </button>
+                    </Link>
                   </div>
                 ) : null
               )}
