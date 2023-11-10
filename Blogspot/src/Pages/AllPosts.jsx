@@ -23,7 +23,7 @@ function AllPosts() {
         <div className="flex flex-wrap gap-4">
           {posts.map((post) => {
             return (
-              <div key={post.$userid} className="w-1/3 p-3">
+              <div key={post.$userid} className="p-3">
                 <PostCard {...post} />
               </div>
             );

@@ -13,11 +13,16 @@ import EditPost from "./Pages/EditPost.jsx";
 import LoginPage from "./Pages/LoginPage.jsx";
 import Post from "./Pages/Post.jsx";
 import Layout from "./Layout.jsx";
+import Home from "./Pages/Home.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
+      {
+         path : "/",
+         element : <Home/>
+      },
       {
         path: "/Login",
         element: <LoginPage />,

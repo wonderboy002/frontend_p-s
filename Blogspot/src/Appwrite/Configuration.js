@@ -30,12 +30,12 @@ export class databaseService {
   //   }
   // } orignal
 
-  async createPost({ title, slug, content, featuredImage, status, userid }) {
+  async createPost({ title, slug, Realcontent, featuredImage, status, userid }) {
     console.log("hello this is inside createPost",featuredImage);
     try {
       const document = {
         title: title,
-        content: content,
+        Realcontent: Realcontent,
         status: status,
         userid: userid,
       };

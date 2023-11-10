@@ -22,7 +22,7 @@ export default function Login() {
         const userData = await Auth.getAccount();
         if (userData) {
           dispatch(authLogin(userData));
-          navigate("/");
+          navigate("/AllPosts");
         }
       }
     } catch (error) {
@@ -33,7 +33,7 @@ export default function Login() {
   return (
     <div className="mainlogin w-full flex flex-col gap-4 p-4  items-center my-8">
       <h1 className="text-xl font-xl font-semibold">Login in to your Account</h1>
-      <p className="font-bold">Don't have an account ?? <a href="#" className="font-bold text-blue-700 underline hover:text--blue-400">Sign up Here</a></p>
+      <p className="font-bold">Don't have an account ?? <Link to="/Signup" className="font-bold text-blue-700 underline hover:text--blue-400">Sign up Here</Link></p>
       {error && ( <p className="text-red-500 font-semibold text-center">
         {error.response.message}
         </p>

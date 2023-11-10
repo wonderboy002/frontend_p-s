@@ -152,8 +152,7 @@ function PostForm({ post }) {
           />{" "}
         </div>
         <RTE
-          label="Content :"
-          name="content"
+          name="Realcontent"
           control={control}
           defaultValue={getValues("content")}
         />
