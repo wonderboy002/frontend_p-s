@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body{
+  min-height: 100vh;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; 
+} */
+
+/* h1{
+  margin-bottom: auto;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  padding: 32px;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  gap: 4rem;
+  border-radius: 32px;
+}
+
+.item{
+  height: 30px;
+  width: 30px;
+  background-color: black;
+  border-radius: 100%;
+} */
+
+.mainContainer {
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+.childImage {
+  height: 400px;
+  width: 400px;
+  border-radius: 32px;
+}
+
+body {
+  background: #8E2DE2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4A00E0, #8E2DE2);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+div.typingtext {
+  color: white;
+  display: flex;
+  gap: 8px;
+  font-weight: bolder;
+  font-size: 42px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  padding: 23px;
+}
+
+.typingtext2{
+  color: white;
+  font-size: 43px;
+  font-weight: 800;
+
+}
+button {
+  border: 1px solid black;
+  width: 10%;
+  padding: 13px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  background-color: darkblue;
+  color: white;
+  font-weight: bold;
+}
+
+.svgs {
+  height: 360px;
+  width: 630px;
+}
