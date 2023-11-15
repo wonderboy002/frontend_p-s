@@ -3,22 +3,26 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import {RouterProvider,createBrowserRouter} from "react-router-dom";
-import {NavBar,Layout} from "./Components"
+import {NavBar,Layout,HomePage,ExchangePage,News,CryptoCurrencies} from "./Components"
 const router=createBrowserRouter([
   {
     path : "/",
     element : <Layout/>,
     children : [{
       path : "CryptoCurrencies",
-      element : <h1>This is Crypto Page</h1>
+      element : <CryptoCurrencies/>
     },
     {
-      path : "Exchanges",
-      element : <h1>This is Exchanges Page</h1>
+      path : "/Home",
+      element : <HomePage/>
     },
     {
-      path : "News",
-      element : <h1>This is Crypto news Page</h1>
+      path : "/Exchanges",
+      element : <ExchangePage/>
+    },
+    {
+      path : "/News",
+      element : <News/>
     }
   ]
   }

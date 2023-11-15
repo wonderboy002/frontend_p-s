@@ -12,7 +12,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-full p-3">
+    <div className="w-full p-6">
       <button
         onClick={handleToggleDrawer}
         className="p-2 shadow-lg shadow-slate-500 rounded-full"
@@ -44,7 +44,7 @@ const NavBar = () => {
 
           <div className="w-full">
             <NavLink
-              to="/"
+              to="/Home"
               className="px-12 py-3 Home flex items-center gap-3 font-bold"
             >
               <svg
