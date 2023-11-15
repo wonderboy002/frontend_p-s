@@ -52,6 +52,7 @@ body {
   background: linear-gradient(to right, #4A00E0, #8E2DE2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   display: flex;
   height: 100vh;
+  width: 100vw;
   justify-content: center;
   align-items: center;
 }
@@ -72,6 +73,8 @@ div.typingtext {
   font-weight: 800;
 
 }
+
+
 button {
   border: 1px solid black;
   width: 10%;
@@ -86,4 +89,26 @@ button {
 .svgs {
   height: 360px;
   width: 630px;
+}
+
+.cont{
+  height: 100%;
+  width: 100%;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(3,1fr);
+  border: 2px dotted white;
+  border-radius: 33px;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.items{
+  display: flex;
+  background-color: white;
+  border-radius: 100%;
+  height: 100px;
+  width: 100px;
+  justify-content: center;
 }
