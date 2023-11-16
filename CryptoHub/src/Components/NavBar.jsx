@@ -12,10 +12,10 @@ const NavBar = () => {
   };
 
   return (
-    <div className="w-full p-6">
+    <div className="w-full ham p-6">
       <button
         onClick={handleToggleDrawer}
-        className="p-2 shadow-lg shadow-slate-500 rounded-full"
+        className="p-2 ham shadow-lg shadow-slate-500 rounded-full"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ const NavBar = () => {
       </button>
       <Drawer anchor="left" open={open} onClose={handleToggleDrawer}>
         {/* Content of the drawer goes here */}
-        <div className="p-12 bg-darkBlue text-white h-full menu flex flex-col gap-4">
+        <div className="p-6 bg-darkBlue text-white h-full menu flex flex-col gap-4">
           <div>
             <img
               className="w-[100px] h-[100px] rounded-full mx-auto"

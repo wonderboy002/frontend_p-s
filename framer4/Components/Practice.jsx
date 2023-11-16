@@ -14,7 +14,7 @@ function Practice() {
   };
 
   const child = {
-    hidden: { y: -200, opacity: 0 },
+    hidden: { y: -2000, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,

@@ -9,15 +9,21 @@
 }
 
 .footer{
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    margin-top: 100px;
+   position: sticky;
+   bottom: 0px;
+}
+
+div.ham{
+    position: sticky;
+    top: 0;
 }
 
 .container{
     display: grid;
     margin-top: 10px;
-    gap: 1rem;
+    gap: 2.5rem;
     grid-template-rows: repeat(3,1fr);
     grid-template-columns: repeat(2,1fr);
 }
+

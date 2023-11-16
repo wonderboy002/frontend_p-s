@@ -6,7 +6,7 @@ import RedditIcon from "@mui/icons-material/Reddit";
 
 const Footer = () => {
   return (
-    <div className="footer bg-darkBlue p-4 text-white flex flex-col gap-[10px] items-center">
+    <footer className="footer  bg-darkBlue p-4 text-white flex flex-col gap-[10px] items-center">
       <h1>CryptoHub by Nipun Kupatkar</h1>
       <h1>ALL Rights Reserved</h1>
       <div className="socials px-4 flex gap-[8px] ml-auto">
@@ -35,7 +35,7 @@ const Footer = () => {
           </a>
         </button>
       </div>
-    </div>
+    </footer>
   );
 };
 

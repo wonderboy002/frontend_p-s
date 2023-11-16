@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       colors : {
-        'darkBlue' : '#192a56'
+        'darkBlue' : '#192a56',
+        'Blue' : '#3c40c6'
       }
     },
   },
